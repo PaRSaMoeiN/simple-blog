@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Blog</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #0056b3;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffc107;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .new-post {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .new-post input, .new-post textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .new-post button {
+            padding: 10px 15px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .new-post button:hover {
+            background: #218838;
+        }
+
+        .post {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            position: relative;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .post h2 {
+            margin: 0 0 10px;
+            color: #333;
+        }
+
+        .post .timestamp {
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .post p {
+            margin: 0 0 15px;
+            color: #555;
+        }
+
+        .post button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+            line-height: 30px;
+            transition: background 0.3s;
+        }
+
+        .post button:hover {
+            background: #c82333;
+        }
+
+        footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #ffc107;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .about, .contact {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .about h2, .contact h2 {
+            margin: 0 0 10px;
+            color: #333;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* استایل برای بخش تماس با ما */
+.contact {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.contact h2 {
+    margin: 0 0 20px;
+    color: #333;
+    font-size: 2rem;
+}
+
+.contact p {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact input, .contact textarea {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    background-color: #f7f7f7;
+    transition: background-color 0.3s ease;
+}
+
+.contact input:focus, .contact textarea:focus {
+    background-color: #ffffff;
+    border-color: #007bff;
+    outline: none;
+}
+
+.contact button {
+    padding: 15px;
+    background: #007bff;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    align-self: flex-start;
+}
+
+.contact button:hover {
+    background: #0056b3;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* استایل برای بخش نظرات */
+.comments-section {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    animation: fadeIn 0.5s ease-in-out;
+    margin: 0px 20px;
+}
+
+.comments-section h3 {
+    margin: 0 0 20px;
+    color: #333;
+    font-size: 1.8rem;
+}
+
+.comment {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.comment p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.comment .timestamp {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.comment-form textarea {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    background-color: #f7f7f7;
+    transition: background-color 0.3s ease;
+}
+
+.comment-form textarea:focus {
+    background-color: #ffffff;
+    border-color: #007bff;
+    outline: none;
+}
+
+.comment-form button {
+    padding: 15px;
+    background: #007bff;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+    align-self: flex-start;
+}
+
+.comment-form button:hover {
+    background: #0056b3;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Professional Blog</h1>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <div class="new-post">
+            <h2>Create a New Post</h2>
+            <input type="text" id="post-title" placeholder="Post Title">
+            <textarea id="post-content" rows="5" placeholder="Write your post..."></textarea>
+            <button onclick="addPost()">Add Post</button>
+        </div>
+
+        <div id="posts-container">
+            <!-- Posts will appear here -->
+        </div>
+
+        <div id="about" class="about">
+            <h2>About Us</h2>
+            <p>We are a team of passionate writers, developers, and creators who share knowledge and experiences through our blog. Our goal is to help people learn and grow by providing valuable content.</p>
+        </div>
+
+<div id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, feel free to reach out to us through the form below:</p>
+    <form>
+        <input type="text" placeholder="Your Name" required><br><br>
+        <input type="email" placeholder="Your Email" required><br><br>
+        <textarea placeholder="Your Message" rows="4" required></textarea><br><br>
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+    </div>
+<div class="comments-section">
+    <h3>Comments</h3>
+
+    <!-- فرم ارسال نظر -->
+    <div class="comment-form">
+        <textarea id="comment-input" rows="4" placeholder="Write your comment..." required></textarea><br><br>
+        <button onclick="addComment()">Post Comment</button>
+    </div>
+
+    <!-- نظرات قبلی -->
+    <div id="comments-container">
+        <!-- نظرات در اینجا نمایش داده می‌شود -->
+    </div>
+</div>
+    <footer>
+        <p>&copy; 2024 Professional Blog. Designed by <a href="#">You</a>.</p>
+    </footer>
+
+    <script>
+        // Load posts from local storage
+        document.addEventListener("DOMContentLoaded", function () {
+            displayPosts();
+        });
+
+        function addPost() {
+            const title = document.getElementById("post-title").value.trim();
+            const content = document.getElementById("post-content").value.trim();
+            const timestamp = new Date().toLocaleString();
+
+            if (!title || !content) {
+                alert("Please fill in both fields.");
+                return;
+            }
+
+            const posts = JSON.parse(localStorage.getItem("posts")) || [];
+            posts.push({ title, content, timestamp });
+            localStorage.setItem("posts", JSON.stringify(posts));
+
+            document.getElementById("post-title").value = "";
+            document.getElementById("post-content").value = "";
+            displayPosts();
+        }
+
+        function deletePost(index) {
+            const posts = JSON.parse(localStorage.getItem("posts")) || [];
+            posts.splice(index, 1);
+            localStorage.setItem("posts", JSON.stringify(posts));
+            displayPosts();
+        }
+
+        function displayPosts() {
+            const postsContainer = document.getElementById("posts-container");
+            postsContainer.innerHTML = "";
+
+            const posts = JSON.parse(localStorage.getItem("posts")) || [];
+            posts.forEach((post, index) => {
+                const postDiv = document.createElement("div");
+                postDiv.classList.add("post");
+                postDiv.innerHTML = `
+                    <h2>${post.title}</h2>
+                    <span class="timestamp">${post.timestamp}</span>
+                    <p>${post.content}</p>
+                    <button onclick="deletePost(${index})">&times;</button>
+                `;
+                postsContainer.appendChild(postDiv);
+            });
+        }
+        
+        // بارگذاری نظرات از localStorage
+document.addEventListener("DOMContentLoaded", function () {
+    displayComments();
+});
+
+function addComment() {
+    const commentContent = document.getElementById("comment-input").value.trim();
+    const timestamp = new Date().toLocaleString();
+
+    if (!commentContent) {
+        alert("Please enter a comment.");
+        return;
+    }
+
+    const comments = JSON.parse(localStorage.getItem("comments")) || [];
+    comments.push({ commentContent, timestamp });
+    localStorage.setItem("comments", JSON.stringify(comments));
+
+    document.getElementById("comment-input").value = "";
+    displayComments();
+}
+
+function displayComments() {
+    const commentsContainer = document.getElementById("comments-container");
+    commentsContainer.innerHTML = "";
+
+    const comments = JSON.parse(localStorage.getItem("comments")) || [];
+    comments.forEach(comment => {
+        const commentDiv = document.createElement("div");
+        commentDiv.classList.add("comment");
+        commentDiv.innerHTML = `
+            <p>${comment.commentContent}</p>
+            <span class="timestamp">${comment.timestamp}</span>
+        `;
+        commentsContainer.appendChild(commentDiv);
+    });
+}
+    </script>
+</body>
+</html>
